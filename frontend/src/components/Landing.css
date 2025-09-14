@@ -1,0 +1,124 @@
+/* Landing.css */
+#home {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("/assets/AILanding.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  scroll-snap-align: start;
+}
+
+/* Overlay with glass effect */
+#home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
+#home .content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 2rem 3rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+#home h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+#home p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Scroll snapping */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+main {
+  scroll-snap-type: y proximity;
+}
+
+section {
+  scroll-snap-align: start;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✅ Responsive styles */
+@media (max-width: 768px) {
+  #home .content {
+    padding: 1.5rem 2rem;
+    max-width: 90%;
+  }
+
+  #home h1 {
+    font-size: 2.2rem;
+  }
+
+  #home p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  #home {
+    padding: 1rem;
+  }
+
+  #home .content {
+    padding: 1rem 1.5rem;
+    border-radius: 0.8rem;
+  }
+
+  #home h1 {
+    font-size: 1.8rem;
+  }
+
+  #home p {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+}

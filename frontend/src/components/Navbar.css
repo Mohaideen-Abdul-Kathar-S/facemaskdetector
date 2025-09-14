@@ -1,0 +1,77 @@
+/* Navbar.css */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(to right, #0f766e, #14b8a6);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar .brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.navbar .links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar .links a {
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar .links a:hover {
+  color: #facc15; /* amber highlight */
+}
+
+/* Hamburger menu (hidden on desktop) */
+.navbar .hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+  .navbar .links {
+    display: none; /* hide default */
+    position: absolute;
+    top: 64px;
+    right: 0;
+    flex-direction: column;
+    background: #0f766e;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .navbar .links.active {
+    display: flex;
+    animation: slideDown 0.3s ease-in-out;
+  }
+
+  .navbar .hamburger {
+    display: block;
+  }
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
