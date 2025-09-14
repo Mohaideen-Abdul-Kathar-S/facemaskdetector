@@ -26,7 +26,8 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 
 # Load the face mask detection model once
-model = load_face_mask_model("models/face_mask_detector.h5")
+model = load_face_mask_model("backend/models/face_mask_detector.h5")
+
 
 
 # MongoDB setup (optional) - set MONGO_URI in .env for logging predictions
