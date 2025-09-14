@@ -4,7 +4,8 @@ from werkzeug.utils import secure_filename
 from pymongo import MongoClient
 from datetime import datetime
 from flask_cors import CORS
-from model_utils import load_face_mask_model, prepare_image, predict_from_image
+from backend.model_utils import load_face_mask_model, prepare_image, predict_from_image
+
 
 
 
