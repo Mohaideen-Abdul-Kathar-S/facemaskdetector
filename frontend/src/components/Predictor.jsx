@@ -34,17 +34,21 @@ export default function Predictor() {
 
   // Start camera
   const startCamera = async () => {
-    try {
-      const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
-      videoRef.current.srcObject = mediaStream;
-      setStream(mediaStream);
-      setUsingCamera(true);
-      setFile(null);
-      setResult(null);
-    } catch (err) {
-      alert("Camera not accessible");
-    }
-  };
+  try {
+    const mediaStream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: { ideal: "environment" } }  // rear camera if available
+    });
+    videoRef.current.srcObject = mediaStream;
+    setStream(mediaStream);
+    setUsingCamera(true);
+    setFile(null);
+    setResult(null);
+  } catch (err) {
+    console.error("Camera error:", err);
+    alert("Camera not accessible. Please allow camera permissions in browser settings.");
+  }
+};
+
 
   // Stop camera
   const stopCamera = () => {
