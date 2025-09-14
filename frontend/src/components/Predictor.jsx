@@ -86,7 +86,7 @@ export default function Predictor() {
     formData.append("file", file);
 
     try {
-      const res = await fetch("http://localhost:5000/api/predict", { method: "POST", body: formData });
+      const res = await fetch("https://facemaskdetector-ebo6.onrender.com/api/predict", { method: "POST", body: formData });
       const data = await res.json();
       setResult(data);
     } catch (err) {
